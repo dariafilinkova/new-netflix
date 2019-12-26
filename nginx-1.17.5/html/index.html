@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Netflix</title>
+<style>
+  h3
+  {
+    margin: 5%;
+    text-align: center;
+    background: #FFF;
+    padding: 10px; 
+  }
+    body {
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+   
+h1{
+  color: #FF0000;
+}
+ body {
+       background-color:#000;
+    }
+    header{
+  height: 300px;
+  color:#000000;
+  text-align: center;
+  border-bottom: 4px solid #666666;
+
+}
+div.menu
+{
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: inline;
+}
+
+</style>
+
+</head>
+<header>
+ <img src="downloads/netflex.jpg" height="100%" width="100%">
+</header>
+<body>
+<div align="center" class="menu">
+    <ul>
+            <li style="padding-left: 158px;"><a href="#"> <b> Main </b> </a></li>
+      <li><a href="premier.html#"> <b> Premiers </b> </a></li>
+      <li><a href="premier.html#"> <b> Booktable </b> </a></li>
+    </ul>
+  </div>
+    <textarea style="color: #000"><!--#echo var="DATE_LOCAL"--></textarea> 
+ 
+
+<h1 align="center">Choose film for you</h1>
+
+  <h3>choose categories of film</h3>
+        <div  align="center" id="categories"/>
+         <!--#include virtual="/app/categories"-->
+ 
+   <h3>choose age of film </h3>
+        <div align="center" id="age"/>
+         <!--#include virtual="/app/age"-->
+    <h3>country of the film</h3>
+        <div id="country of the film<"/>
+         <!--#include virtual="/app/country"-->
+           <h3>serials</h3>
+        <div id="serials"/>
+         <!--#include virtual="/app/serials"-->
+ 
+    </div>
+    <br>
+</body>
+<template align="center" id="template"> 
+    <div>
+      {{#each point of departure}}
+        <span>{{name}}</span>
+        <span>{{mark}}</span>
+      {{/each}}
+  </div>
+  <div>
+      {{#each point of arrival}}
+        <span>{{name}}</span>
+        <span>{{mark}}</span>
+      {{/each}}
+  </div>
+</template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js"></script>
+<script>
+    var template = document.getElementById('template').innerHTML;
+    var renderProbki = Handlebars.compile(template);
+    document.getElementById('point of arrival').innerHTML = renderProbki({probki: [
+        {"name": "Probka", "mark": "8"}]});
+
+</script>
+</html>
